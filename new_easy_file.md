@@ -1,2 +1,2 @@
-![Image](http://url/a.png)
-![Image](http://url/b.png)
+![Image](http://url/a)
+![Image](http://url/b)
