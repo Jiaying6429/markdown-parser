@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class MarkdownParse {
 
+<<<<<<< HEAD
     static int findCloseParen(String markdown, int openParen) {
         int closeParen = openParen + 1;
         int openParenCount = 1;
@@ -26,6 +27,28 @@ public class MarkdownParse {
         }
         else {
           return -1;
+=======
+    public static ArrayList<String> getLinks(String markdown) {
+        ArrayList<String> toReturn = new ArrayList<>();
+        // find the next [, then find the ], then find the (, then read link upto next )
+
+        //check
+        if (markdown.isEmpty()) {
+            return toReturn;
+        }
+
+        int currentIndex = 0;
+        while(currentIndex < markdown.length()) {
+            int openBracket = markdown.indexOf("[", currentIndex);
+            int closeBracket = markdown.indexOf("]", openBracket);
+            int openParen = markdown.indexOf("(", closeBracket);
+            int closeParen = markdown.indexOf(")", openParen);
+            if(openBracket==-1 || closeBracket==-1 || openParen==-1 || closeParen ==-1){
+                break;
+            }
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            currentIndex = closeParen + 1;
+>>>>>>> 50e94256fbed7420c61ac234383e2a1524d4e9f5
         }
 
     }
