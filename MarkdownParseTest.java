@@ -23,6 +23,49 @@ public class MarkdownParseTest {
         assertEquals(test, MarkdownParse.getLinks(content));
         
     }
+
+    @Test
+    public void testFile1 () throws IOException{
+        ArrayList<String> test = new ArrayList<>();
+        test.add("url.com");
+        test.add("`google.com");
+        test.add("google.com");
+        test.add("ucsd.edu");
+
+        Path fileName = Path.of("lab4_s1.md");
+        String content = Files.readString(fileName);
+
+        assertEquals(test, MarkdownParse.getLinks(content));
+        
+    }
+
+    @Test
+    public void testFile2 () throws IOException{
+        ArrayList<String> test = new ArrayList<>();
+        test.add("a.com");
+        test.add("a.com(())");
+        test.add("example.com");
+
+        Path fileName = Path.of("lab4_s2.md");
+        String content = Files.readString(fileName);
+
+        assertEquals(test, MarkdownParse.getLinks(content));
+        
+    }
+
+    @Test
+    public void testFile3 () throws IOException{
+        ArrayList<String> test = new ArrayList<>();
+        test.add("https://www.twitter.com");
+        test.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+        test.add("https://cse.ucsd.edu/");
+
+        Path fileName = Path.of("lab4_s3.md");
+        String content = Files.readString(fileName);
+
+        assertEquals(test, MarkdownParse.getLinks(content));
+        
+    }
 }
 
 
